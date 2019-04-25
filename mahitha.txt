@@ -1,0 +1,54 @@
+CREATE TABLE product
+(
+Product_ID int PRIMARY KEY NOT NULL,
+Product varchar(30),
+Date_add REFERENCES dates(Date_ID)
+);
+
+CREATE TABLE dates
+(
+date_ID int PRIMARY KEY NOT NULL,
+Day varchar(30),
+Month varchar(30),
+Year varchar(30)
+);
+
+CREATE TABLE quarter
+(
+Quarter_ID int PRIMARY KEY NOT NULL,
+Month varchar(30)
+); 
+
+CREATE TABLE country
+(
+Country varchar(25) PRIMARY KEY NOT NULL,
+State varchar(25) NOT NULL,
+City varchar(25)  
+);
+
+
+
+CREATE TABLE fact (Product_ID REFERENCES product(Product_ID),Quarter_ID REFERENCES quarter(Quarter_ID),Country REFERENCES country(Country),Sales int);
+
+insert into dates VALUES (); 
+insert into dates VALUES (11,'philips'); 
+insert into dates VALUES (12,'eveready'); 
+insert into dates VALUES (13,'dell');
+
+insert into product VALUES (10,'Syska'); 
+insert into product VALUES (11,'philips'); 
+insert into product VALUES (12,'eveready'); 
+insert into product VALUES (13,'dell');
+
+insert into quarter VALUES (1,'Jan');  
+insert into quarter VALUES (3,'Jan');
+insert into quarter VALUES (101,'Feb');
+insert into quarter VALUES (105,'july');
+
+insert into country VALUES ('India','Goa','Panji');
+insert into country VALUES ('US','Boston','Boston');
+insert into country VALUES ('Canada','Florida','Chicago');
+
+insert into fact VALUES(10,1,'India',5500);
+insert into fact VALUES(11,3,'US',4000);
+insert into fact VALUES(12,101,'Canada',3000);
